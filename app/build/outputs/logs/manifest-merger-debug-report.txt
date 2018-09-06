@@ -1,0 +1,155 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:2:1-24:12
+MERGED from [com.android.databinding:adapters:3.1.4] /home/ashish/.gradle/caches/transforms-1/files-1.1/adapters-3.1.4.aar/dc4aab435aaeec24214484766f2ca7ba/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.databinding:library:3.1.4] /home/ashish/.gradle/caches/transforms-1/files-1.1/library-3.1.4.aar/f873c88958c4d67ff9ddfe667a6ce866/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:design:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/ad32629b905f29d6fd6560422403c2e8/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/27c8b76425e0af753a564d7352be150d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/ashish/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.2.aar/8bd90c74fe36f57a27854109f331e36d/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/fd6546b6c547c912880f2bcc5e473bcd/AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/glide-4.8.0.aar/1dfb7a9f74f48f1498dc292e0b559ae3/AndroidManifest.xml:2:1-12:12
+MERGED from [com.android.support:support-v4:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/3dab90b978f5c77c7a43834c2fb273dd/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/30a389a6439d644fb2ffb528fc11bf92/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/9899f2c442fdeacfa7d3c337250a5d11/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/6db477b64735610d382079926626a02b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/ab2ce929a01a521f6931f4f1b61c1e1c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/b7f4b709239202edfa2727aff1ab21e9/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/24743ae1e0ea8013dd6c8001fd552830/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/1fd2d9b129e06973ce45fa92b3229cba/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/ea84c7d472a7dca2f77d641ed2733e64/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/c783126be8c47794a2d5e670faddda52/AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.8.0.aar/88246e20d8e25e037ce07f3a854363c0/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:cardview-v7:26.0.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.0.1.aar/e6212dcf75afacb5e43899e4808f4ed8/AndroidManifest.xml:17:1-28:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/e593f2fe1e894b080c1c330245e80461/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/075d71694709c3f8124653dbacc84832/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/1d0b389e13e3fe927adf1b6250c3c42a/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:2:1-24:12
+	package
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:3:5-38
+		INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:2:1-24:12
+		INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:2:1-24:12
+		INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:5:5-66
+	android:name
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:6:5-78
+	android:name
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:6:22-76
+application
+ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:8:5-22:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/ashish/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.2.aar/8bd90c74fe36f57a27854109f331e36d/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/ashish/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.2.aar/8bd90c74fe36f57a27854109f331e36d/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/glide-4.8.0.aar/1dfb7a9f74f48f1498dc292e0b559ae3/AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/glide-4.8.0.aar/1dfb7a9f74f48f1498dc292e0b559ae3/AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.8.0.aar/88246e20d8e25e037ce07f3a854363c0/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.8.0.aar/88246e20d8e25e037ce07f3a854363c0/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:cardview-v7:26.0.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.0.1.aar/e6212dcf75afacb5e43899e4808f4ed8/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:cardview-v7:26.0.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.0.1.aar/e6212dcf75afacb5e43899e4808f4ed8/AndroidManifest.xml:22:5-26:19
+	android:supportsRtl
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:13:9-35
+	android:label
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:11:9-41
+	android:roundIcon
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:12:9-54
+	android:icon
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:10:9-43
+	android:allowBackup
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:9:9-35
+	android:theme
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:14:9-40
+activity#com.example.ashish.task.MainActivity
+ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:15:9-21:20
+	android:configChanges
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:16:13-59
+	android:name
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:15:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:17:13-20:29
+action#android.intent.action.MAIN
+ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:18:17-69
+	android:name
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:18:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:19:17-77
+	android:name
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml:19:27-74
+uses-sdk
+INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml
+INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml
+MERGED from [com.android.databinding:adapters:3.1.4] /home/ashish/.gradle/caches/transforms-1/files-1.1/adapters-3.1.4.aar/dc4aab435aaeec24214484766f2ca7ba/AndroidManifest.xml:22:5-44
+MERGED from [com.android.databinding:adapters:3.1.4] /home/ashish/.gradle/caches/transforms-1/files-1.1/adapters-3.1.4.aar/dc4aab435aaeec24214484766f2ca7ba/AndroidManifest.xml:22:5-44
+MERGED from [com.android.databinding:library:3.1.4] /home/ashish/.gradle/caches/transforms-1/files-1.1/library-3.1.4.aar/f873c88958c4d67ff9ddfe667a6ce866/AndroidManifest.xml:22:5-44
+MERGED from [com.android.databinding:library:3.1.4] /home/ashish/.gradle/caches/transforms-1/files-1.1/library-3.1.4.aar/f873c88958c4d67ff9ddfe667a6ce866/AndroidManifest.xml:22:5-44
+MERGED from [com.android.support:design:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/ad32629b905f29d6fd6560422403c2e8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/ad32629b905f29d6fd6560422403c2e8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/27c8b76425e0af753a564d7352be150d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/27c8b76425e0af753a564d7352be150d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/ashish/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.2.aar/8bd90c74fe36f57a27854109f331e36d/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /home/ashish/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.2.aar/8bd90c74fe36f57a27854109f331e36d/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/fd6546b6c547c912880f2bcc5e473bcd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/fd6546b6c547c912880f2bcc5e473bcd/AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/glide-4.8.0.aar/1dfb7a9f74f48f1498dc292e0b559ae3/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.8.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/glide-4.8.0.aar/1dfb7a9f74f48f1498dc292e0b559ae3/AndroidManifest.xml:6:5-8:41
+MERGED from [com.android.support:support-v4:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/3dab90b978f5c77c7a43834c2fb273dd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/3dab90b978f5c77c7a43834c2fb273dd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/30a389a6439d644fb2ffb528fc11bf92/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/30a389a6439d644fb2ffb528fc11bf92/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/9899f2c442fdeacfa7d3c337250a5d11/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/9899f2c442fdeacfa7d3c337250a5d11/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/6db477b64735610d382079926626a02b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/6db477b64735610d382079926626a02b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/ab2ce929a01a521f6931f4f1b61c1e1c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/ab2ce929a01a521f6931f4f1b61c1e1c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/b7f4b709239202edfa2727aff1ab21e9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/b7f4b709239202edfa2727aff1ab21e9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/24743ae1e0ea8013dd6c8001fd552830/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/24743ae1e0ea8013dd6c8001fd552830/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/1fd2d9b129e06973ce45fa92b3229cba/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/1fd2d9b129e06973ce45fa92b3229cba/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/ea84c7d472a7dca2f77d641ed2733e64/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/ea84c7d472a7dca2f77d641ed2733e64/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/c783126be8c47794a2d5e670faddda52/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/c783126be8c47794a2d5e670faddda52/AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.8.0.aar/88246e20d8e25e037ce07f3a854363c0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.8.0.aar/88246e20d8e25e037ce07f3a854363c0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:cardview-v7:26.0.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.0.1.aar/e6212dcf75afacb5e43899e4808f4ed8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:26.0.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.0.1.aar/e6212dcf75afacb5e43899e4808f4ed8/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/e593f2fe1e894b080c1c330245e80461/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/e593f2fe1e894b080c1c330245e80461/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/075d71694709c3f8124653dbacc84832/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/075d71694709c3f8124653dbacc84832/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/1d0b389e13e3fe927adf1b6250c3c42a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/ashish/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/1d0b389e13e3fe927adf1b6250c3c42a/AndroidManifest.xml:20:5-44
+INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml
+INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml
+		ADDED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ashish/task-wipro/Task/app/src/main/AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:cardview-v7:26.0.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.0.1.aar/e6212dcf75afacb5e43899e4808f4ed8/AndroidManifest.xml:23:9-25:38
+	android:value
+		ADDED from [com.android.support:cardview-v7:26.0.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.0.1.aar/e6212dcf75afacb5e43899e4808f4ed8/AndroidManifest.xml:25:13-35
+	android:name
+		ADDED from [com.android.support:cardview-v7:26.0.1] /home/ashish/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.0.1.aar/e6212dcf75afacb5e43899e4808f4ed8/AndroidManifest.xml:24:13-51
