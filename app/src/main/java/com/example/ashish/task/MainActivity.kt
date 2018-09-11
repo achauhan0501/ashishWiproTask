@@ -1,6 +1,10 @@
 package com.example.ashish.task
 
+import android.content.BroadcastReceiver
+import android.content.IntentFilter
 import android.graphics.Color
+import android.net.ConnectivityManager
+import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.widget.SwipeRefreshLayout
@@ -20,6 +24,7 @@ import com.example.ashish.task.receiver.ConnectionReceiver
 import com.example.ashish.task.receiver.MainApplication
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity(), GetDataInterface.View,
         ConnectionReceiver.ConnectionReceiverListener {
 
@@ -29,6 +34,7 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
     var list: ArrayList<RowData> = ArrayList()
     var title: String = ""
     var snackbar: Snackbar? = null
+    var mConnectionReceiver: BroadcastReceiver? = null
 
     override fun onGetDataSuccess(message: String, data: java.util.ArrayList<RowData>, heading: String) {
         list = data
@@ -49,6 +55,8 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
         checkConnection()
         layoutManager = LinearLayoutManager(this)
         list = ArrayList()
+        mConnectionReceiver = ConnectionReceiver()
+        registerReceiver()
 
 
 
@@ -68,6 +76,11 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
     override fun onResume() {
         super.onResume()
         MainApplication.getInstance().setConnectionListener(this)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unRegisterReceiver()
     }
 
     fun refresh() {
@@ -135,6 +148,24 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
             // dismiss the dialog or refresh the activity
             snackbar?.dismiss()
         }
+    }
+
+    private fun registerReceiver() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            registerReceiver(mConnectionReceiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            registerReceiver(mConnectionReceiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
+        }
+    }
+
+    fun unRegisterReceiver() {
+        try {
+            unregisterReceiver(mConnectionReceiver)
+        } catch (e: IllegalArgumentException) {
+            e.printStackTrace()
+        }
+
     }
 
 
