@@ -15,14 +15,4 @@ interface GetDataInterface {
     interface Presenter {
         fun getDataFromURL(context: Context)
     }
-
-    interface Interactor {
-        fun initRetrofitCall(context: Context)
-
-    }
-
-    interface onGetDataListener {
-        fun onSuccess(message: String, list: ArrayList<RowData>, title: String)
-        fun onFailure(message: String)
-    }
 }
