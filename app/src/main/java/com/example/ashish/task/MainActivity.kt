@@ -36,6 +36,10 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
     var snackbar: Snackbar? = null
     var mConnectionReceiver: BroadcastReceiver? = null
 
+
+
+
+
     override fun onGetDataSuccess(message: String, data: java.util.ArrayList<RowData>, heading: String) {
         list = data
         title = heading
@@ -46,6 +50,8 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
     override fun onGetDataFailure(message: String) {
         Toast.makeText(this@MainActivity, getString(R.string.no_internet_results), Toast.LENGTH_LONG).show()
     }
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,9 +68,7 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
 
         swipe_layout.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
             if (ConnectionReceiver.isConnected()) {
-                swipe_layout.isEnabled = true
                 refresh()
-                swipe_layout.isRefreshing = false
             } else {
                 swipe_layout.isRefreshing = false
                 swipe_layout.isEnabled = false
@@ -72,6 +76,7 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
         })
 
     }
+
 
     override fun onResume() {
         super.onResume()
@@ -86,13 +91,15 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
     fun refresh() {
         list.clear()
         initialise()
-        presenter?.getDataFromURL(this@MainActivity)
+        presenter?.getDataFromURL()
     }
 
 
     fun initialise() {
-        rv.adapter = ItemsAdapter(this, list)
         rv.layoutManager = layoutManager
+        rv.recycledViewPool.setMaxRecycledViews(0, 0)
+        rv.setHasFixedSize(true)
+        rv.adapter = ItemsAdapter(this, list)
         val tv = TextView(applicationContext)
         // Create a LayoutParams for TextView
         val lp = RelativeLayout.LayoutParams(
@@ -115,7 +122,7 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
         snackbar?.setAction("RETRY", View.OnClickListener {
             if (ConnectionReceiver.isConnected()) {
                 snackbar?.dismiss()
-                presenter?.getDataFromURL(this@MainActivity)
+                presenter?.getDataFromURL()
 
             } else {
                 showNoInternetSnackBar()
@@ -136,7 +143,7 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
         if (!isConnected) {
             showNoInternetSnackBar()
         } else {
-            presenter?.getDataFromURL(this@MainActivity)
+            presenter?.getDataFromURL()
         }
     }
 
@@ -147,10 +154,11 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
         } else {
             // dismiss the dialog or refresh the activity
             snackbar?.dismiss()
+            swipe_layout.isEnabled = true
         }
     }
 
-    private fun registerReceiver() {
+    fun registerReceiver() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             registerReceiver(mConnectionReceiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
         }
@@ -167,6 +175,7 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
         }
 
     }
+
 
 
 }
