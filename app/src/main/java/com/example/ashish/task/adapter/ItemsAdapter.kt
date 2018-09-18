@@ -1,6 +1,5 @@
 package com.example.ashish.task.adapter
 
-import android.content.Context
 import android.databinding.DataBindingUtil
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -13,7 +12,9 @@ import com.squareup.picasso.Picasso
 import java.lang.Exception
 
 
-class ItemsAdapter(var context: Context, var list: ArrayList<RowData>) : RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
+class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
+
+    var list: ArrayList<RowData> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemsAdapter.ViewHolder {
         val layoutInflator = LayoutInflater.from(parent.context)
@@ -47,6 +48,17 @@ class ItemsAdapter(var context: Context, var list: ArrayList<RowData>) : Recycle
                     }
                 })
 
+    }
+
+    fun clearItems() {
+        list.clear()
+        notifyDataSetChanged()
+    }
+
+    fun addItems(data: ArrayList<RowData>) {
+        list.clear()
+        list.addAll(data)
+        notifyDataSetChanged()
     }
 
 

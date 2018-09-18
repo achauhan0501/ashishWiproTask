@@ -71,13 +71,13 @@ class PresenterTests {
 
     @Test
     fun testForAdapter() {
-        val adapter = ItemsAdapter(context!!, list)
+        val adapter = ItemsAdapter()
         assertNotNull("", adapter)
     }
 
     @Test
     fun checkListInAdapter() {
-        val adapter = ItemsAdapter(context!!, list)
+        val adapter = ItemsAdapter()
         assertNotNull("", adapter.list)
     }
 

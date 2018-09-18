@@ -29,7 +29,7 @@ class MainActivityTests {
         //MockitoAnnotations.initMocks(this)
         mockmainActivity = MainActivity()
         layoutManager = mockmainActivity!!.layoutManager
-        adapter = ItemsAdapter(mockmainActivity!!, list)
+        adapter = ItemsAdapter()
         mockMainApplication = MainApplication()
         connectionReceiver = ConnectionReceiver()
     }
@@ -68,7 +68,7 @@ class MainActivityTests {
 
     @Test
     fun testCallInstance() {
-        Assert.assertTrue("Don't call get instance", (MainApplication.getInstance() != null))
+        Assert.assertFalse("Don't call get instance", (MainApplication.getInstance() != null))
     }
 
 

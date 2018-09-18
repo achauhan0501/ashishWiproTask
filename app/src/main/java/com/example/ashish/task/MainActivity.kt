@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
     var title: String = ""
     var snackbar: Snackbar? = null
     var mConnectionReceiver: BroadcastReceiver? = null
+    var itemsAdapter: ItemsAdapter ?= null
 
 
 
@@ -43,8 +44,9 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
     override fun onGetDataSuccess(message: String, data: java.util.ArrayList<RowData>, heading: String) {
         list = data
         title = heading
-        initialise()
         swipe_layout.isRefreshing = false
+        initialise()
+
     }
 
     override fun onGetDataFailure(message: String) {
@@ -59,8 +61,9 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
         setContentView(R.layout.activity_main)
         presenter = PresenterLogic(this@MainActivity)
         checkConnection()
-        layoutManager = LinearLayoutManager(this)
         list = ArrayList()
+        layoutManager = LinearLayoutManager(this)
+        itemsAdapter = ItemsAdapter()
         mConnectionReceiver = ConnectionReceiver()
         registerReceiver()
 
@@ -89,7 +92,7 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
     }
 
     fun refresh() {
-        list.clear()
+        itemsAdapter?.clearItems()
         initialise()
         presenter?.getDataFromURL()
     }
@@ -99,7 +102,8 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
         rv.layoutManager = layoutManager
         rv.recycledViewPool.setMaxRecycledViews(0, 0)
         rv.setHasFixedSize(true)
-        rv.adapter = ItemsAdapter(this, list)
+        itemsAdapter?.addItems(list)
+        rv.adapter = itemsAdapter
         val tv = TextView(applicationContext)
         // Create a LayoutParams for TextView
         val lp = RelativeLayout.LayoutParams(
