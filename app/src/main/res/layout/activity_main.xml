@@ -10,7 +10,7 @@
    <RelativeLayout
        android:id="@+id/top_view"
        android:layout_width="match_parent"
-       android:layout_height="50dp"
+       android:layout_height="@dimen/toolbar_height"
        android:gravity="center"
        android:background="@android:color/holo_blue_light"/>
 

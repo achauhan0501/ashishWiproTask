@@ -17,20 +17,24 @@
                 android:id="@+id/tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginLeft="@dimen/left_margin"
+                android:layout_marginRight="@dimen/right_margin"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="@dimen/title_test_size"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/left_margin"
+                android:layout_marginEnd="@dimen/right_margin" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="4dp"
-                android:weightSum="10">
+                android:layout_marginLeft="@dimen/left_margin"
+                android:layout_marginRight="@dimen/right_margin"
+                android:layout_marginTop="@dimen/top_margin"
+                android:weightSum="10"
+                android:layout_marginStart="@dimen/left_margin"
+                android:layout_marginEnd="@dimen/right_margin">
 
                 <TextView
                     android:id="@+id/tv_heading"
@@ -38,16 +42,16 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/description_test_size"
                     android:textStyle="normal" />
 
                 <ImageView
                     android:id="@+id/iv_main"
                     android:layout_width="0dp"
-                    android:layout_height="80dp"
+                    android:layout_height="@dimen/image_height"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginStart="6dp"
+                    android:layout_marginLeft="@dimen/image_left_margin"
+                    android:layout_marginStart="@dimen/image_right_margin"
                     android:layout_weight="3"
                     android:scaleType="fitCenter" />
 
@@ -56,12 +60,6 @@
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="6dp"
-                android:background="@android:color/darker_gray"
-                android:visibility="gone" />
 
         </LinearLayout>
 
