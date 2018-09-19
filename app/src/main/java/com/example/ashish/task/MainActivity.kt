@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
+import android.os.Parcelable
 import android.support.design.widget.Snackbar
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
@@ -35,11 +36,10 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
     var title: String = ""
     var snackbar: Snackbar? = null
     var mConnectionReceiver: BroadcastReceiver? = null
-    var itemsAdapter: ItemsAdapter ?= null
-    val HEADING_SIZE : Float = 20f
-
-
-
+    var itemsAdapter: ItemsAdapter? = null
+    val HEADING_SIZE: Float = 20f
+    val LIST_STATE_KEY: String = "key"
+    var listState: Parcelable? = null
 
 
     override fun onGetDataSuccess(message: String, data: java.util.ArrayList<RowData>, heading: String) {
@@ -55,8 +55,6 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
     }
 
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -67,7 +65,6 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
         itemsAdapter = ItemsAdapter()
         mConnectionReceiver = ConnectionReceiver()
         registerReceiver()
-
 
 
         swipe_layout.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
@@ -82,9 +79,13 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
     }
 
 
+
     override fun onResume() {
         super.onResume()
         MainApplication.getInstance().setConnectionListener(this)
+        if (listState != null) {
+            layoutManager?.onRestoreInstanceState(listState)
+        }
     }
 
     override fun onDestroy() {
@@ -103,6 +104,7 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
         rv.layoutManager = layoutManager
         rv.recycledViewPool.setMaxRecycledViews(0, 0)
         rv.setHasFixedSize(true)
+        // listState = rv.layoutManager.onSaveInstanceState()
         itemsAdapter?.addItems(list)
         rv.adapter = itemsAdapter
         val tv = TextView(applicationContext)
@@ -181,6 +183,16 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
 
     }
 
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        outState?.putParcelable(LIST_STATE_KEY, layoutManager?.onSaveInstanceState())
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        if (savedInstanceState != null)
+            listState = savedInstanceState.getParcelable(LIST_STATE_KEY)
+    }
 
 
 }
