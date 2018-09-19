@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
     var snackbar: Snackbar? = null
     var mConnectionReceiver: BroadcastReceiver? = null
     var itemsAdapter: ItemsAdapter ?= null
+    val HEADING_SIZE : Float = 20f
 
 
 
@@ -112,7 +113,7 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
         // Apply the layout parameters to TextView widget
         tv.layoutParams = lp
         tv.gravity = Gravity.CENTER_HORIZONTAL
-        tv.textSize = 20f
+        tv.textSize = HEADING_SIZE
         tv.text = title
         top_view.addView(tv)
 

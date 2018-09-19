@@ -48,7 +48,7 @@ class MainActivityTests {
 
     @Test
     fun testForViewMethods() {
-        Assert.assertTrue("onGetDataSuccess() called", (presenter != null))
+        Assert.assertFalse("onGetDataSuccess() called", (presenter != null))
     }
 
     @Test

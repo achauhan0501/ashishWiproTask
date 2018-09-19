@@ -1,8 +1,7 @@
 package com.example.ashish.task.presenter
 
-import android.content.Context
 import com.example.ashish.task.model.RowData
-import java.util.ArrayList
+import java.util.*
 
 interface GetDataInterface {
 
@@ -13,6 +12,16 @@ interface GetDataInterface {
     }
 
     interface Presenter {
-        fun getDataFromURL(context: Context)
+        fun getDataFromURL()
+    }
+
+    interface GetData {
+        fun initRetrofitCall()
+
+    }
+
+    interface onGetDataListener {
+        fun onSuccess(message: String, list: ArrayList<RowData>, titls: String)
+        fun onFailure(message: String)
     }
 }
