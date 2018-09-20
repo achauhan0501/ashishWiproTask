@@ -1,15 +1,16 @@
 package com.example.ashish.task.model
 
-import com.example.ashish.task.network.RestClient
+import com.example.ashish.task.model.network.RestClient
 import com.example.ashish.task.presenter.GetDataInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class GetData(var listener: GetDataInterface.onGetDataListener) : GetDataInterface.GetData {
+class ApiCall(var listener: GetDataInterface.onGetDataListener) : GetDataInterface.GetData {
 
 
     override fun initRetrofitCall() {
+
         RestClient.getClient().getData().enqueue(object : Callback<ResponseData> {
             override fun onResponse(p0: Call<ResponseData>?, response: Response<ResponseData>) {
                 if (response.isSuccessful) {

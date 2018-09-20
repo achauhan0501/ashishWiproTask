@@ -1,4 +1,4 @@
-package com.example.ashish.task.network
+package com.example.ashish.task.model.network
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

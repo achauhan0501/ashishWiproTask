@@ -1,4 +1,4 @@
-package com.example.ashish.task.network
+package com.example.ashish.task.model.network
 
 import com.example.ashish.task.model.ResponseData
 import retrofit2.Call

@@ -4,6 +4,8 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 class RowData {
+
+
     @SerializedName("title")
     @Expose
     var title: String = ""
@@ -13,4 +15,6 @@ class RowData {
     @SerializedName("imageHref")
     @Expose
     var imageHref: String = ""
+
+
 }

@@ -1,6 +1,6 @@
 package com.example.ashish.task.presenter
 
-import com.example.ashish.task.model.GetData
+import com.example.ashish.task.model.ApiCall
 import com.example.ashish.task.model.RowData
 import java.util.*
 
@@ -8,7 +8,7 @@ class PresenterLogic(var mGetDataView: GetDataInterface.View) :
         GetDataInterface.Presenter, GetDataInterface.onGetDataListener {
 
 
-    var getData: GetData = GetData(this)
+    var getData: ApiCall = ApiCall(this)
 
 
     override fun getDataFromURL() {

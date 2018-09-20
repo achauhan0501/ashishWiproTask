@@ -1,4 +1,6 @@
-package com.example.ashish.task.network;
+package com.example.ashish.task.model.network;
+
+import com.example.ashish.task.AppConstants;
 
 public class RestClient {
 
@@ -23,7 +25,7 @@ public class RestClient {
         private static void initialize() {
             if (instance == null || classifiedApiContract == null) {
                 instance = new RestClient();
-                classifiedApiContract = RestServiceGenerator.Companion.createRestApiService(ApiContract.class,"https://dl.dropboxusercontent.com/");
+                classifiedApiContract = RestServiceGenerator.Companion.createRestApiService(ApiContract.class, AppConstants.Companion.getBASE_URL());
             }
         }
     }

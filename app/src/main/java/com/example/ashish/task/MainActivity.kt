@@ -24,6 +24,8 @@ import com.example.ashish.task.presenter.PresenterLogic
 import com.example.ashish.task.receiver.ConnectionReceiver
 import com.example.ashish.task.receiver.MainApplication
 import kotlinx.android.synthetic.main.activity_main.*
+import android.R.attr.orientation
+import android.content.res.Configuration
 
 
 class MainActivity : AppCompatActivity(), GetDataInterface.View,
@@ -55,6 +57,7 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
     }
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -67,6 +70,9 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
         registerReceiver()
 
 
+
+
+
         swipe_layout.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
             if (ConnectionReceiver.isConnected()) {
                 refresh()
@@ -77,7 +83,6 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
         })
 
     }
-
 
 
     override fun onResume() {
@@ -193,6 +198,5 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
         if (savedInstanceState != null)
             listState = savedInstanceState.getParcelable(LIST_STATE_KEY)
     }
-
 
 }
