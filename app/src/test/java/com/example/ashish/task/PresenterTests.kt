@@ -4,10 +4,8 @@ package com.example.ashish.task
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import com.example.ashish.task.adapter.ItemsAdapter
-import com.example.ashish.task.model.ResponseData
 import com.example.ashish.task.model.RowData
-import com.example.ashish.task.network.ApiContract
-import com.example.ashish.task.network.RestClient
+import com.example.ashish.task.model.network.ApiContract
 import com.example.ashish.task.presenter.GetDataInterface
 import com.example.ashish.task.presenter.PresenterLogic
 import com.nhaarman.mockito_kotlin.spy
@@ -16,19 +14,6 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
-import org.mockito.ArgumentMatchers.anyString
-import org.mockito.Mockito.`when`
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import okhttp3.OkHttpClient
-
-
-
-
-
-
 
 
 class PresenterTests {
@@ -36,15 +21,11 @@ class PresenterTests {
 
     @Mock
     private var mockGetDataView: GetDataInterface.View ?=null
-    private var view: GetDataInterface.View? = null
     private var presenter: PresenterLogic? = null
     private var mockmainActivity: MainActivity? = null
-    private var mockAdapter: ItemsAdapter? = null
     private var list: ArrayList<RowData> = ArrayList()
     private var context: Context? = null
-    private var recyclerView: RecyclerView? = null
-    private var mockViewHolder: ItemsAdapter.ViewHolder? = null
-    private var mockApiContract : ApiContract ?= null
+
 
     @Before
     @Throws(Exception::class)

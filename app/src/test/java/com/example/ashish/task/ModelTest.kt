@@ -2,7 +2,7 @@ package com.example.ashish.task
 
 import com.example.ashish.task.model.ResponseData
 import com.example.ashish.task.model.RowData
-import com.example.ashish.task.network.RestClient
+import com.example.ashish.task.model.network.RestClient
 import com.nhaarman.mockito_kotlin.spy
 import org.junit.Assert
 import org.junit.Before

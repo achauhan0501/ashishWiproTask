@@ -1,12 +1,15 @@
 package com.example.ashish.task
 
 import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.IntentFilter
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
+import android.preference.PreferenceManager
 import android.support.design.widget.Snackbar
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
@@ -23,9 +26,9 @@ import com.example.ashish.task.presenter.GetDataInterface
 import com.example.ashish.task.presenter.PresenterLogic
 import com.example.ashish.task.receiver.ConnectionReceiver
 import com.example.ashish.task.receiver.MainApplication
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_main.*
-import android.R.attr.orientation
-import android.content.res.Configuration
 
 
 class MainActivity : AppCompatActivity(), GetDataInterface.View,
@@ -46,6 +49,8 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
 
     override fun onGetDataSuccess(message: String, data: java.util.ArrayList<RowData>, heading: String) {
         list = data
+        AppConstants.rowList = list
+        AppConstants.toolBarTitle = heading
         title = heading
         swipe_layout.isRefreshing = false
         initialise()
@@ -57,21 +62,31 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
     }
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        presenter = PresenterLogic(this@MainActivity)
-        checkConnection()
-        list = ArrayList()
-        layoutManager = LinearLayoutManager(this)
-        itemsAdapter = ItemsAdapter()
-        mConnectionReceiver = ConnectionReceiver()
-        registerReceiver()
 
-
-
-
+        if (savedInstanceState != null) {
+            list = savedInstanceState.getParcelableArrayList(AppConstants.SAVED_RECYCLER_VIEW_DATASET)
+            title = savedInstanceState.getString(AppConstants.SAVED_RECYCLER_VIEW_HEADING)
+            presenter = PresenterLogic(this@MainActivity)
+            layoutManager = LinearLayoutManager(this)
+            itemsAdapter = ItemsAdapter()
+            mConnectionReceiver = ConnectionReceiver()
+            registerReceiver()
+            if (listState != null) {
+                layoutManager?.onRestoreInstanceState(listState)
+            }
+            initialise()
+        } else {
+            presenter = PresenterLogic(this@MainActivity)
+            checkConnection()
+            list = ArrayList()
+            layoutManager = LinearLayoutManager(this)
+            itemsAdapter = ItemsAdapter()
+            mConnectionReceiver = ConnectionReceiver()
+            registerReceiver()
+        }
 
         swipe_layout.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
             if (ConnectionReceiver.isConnected()) {
@@ -155,9 +170,18 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
         if (!isConnected) {
             showNoInternetSnackBar()
         } else {
-            presenter?.getDataFromURL()
+            if(AppConstants.rowList.isNotEmpty()){
+                list = AppConstants.rowList
+                title = AppConstants.toolBarTitle
+                initialise()
+            }else{
+                presenter?.getDataFromURL()
+            }
+
         }
+
     }
+
 
     override fun onNetworkConnectionChanged(isConnected: Boolean) {
         if (!isConnected) {
@@ -189,14 +213,10 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
-        super.onSaveInstanceState(outState)
         outState?.putParcelable(LIST_STATE_KEY, layoutManager?.onSaveInstanceState())
-    }
+        outState?.putParcelableArrayList(AppConstants.SAVED_RECYCLER_VIEW_DATASET, list)
+        outState?.putString(AppConstants.SAVED_RECYCLER_VIEW_HEADING,title)
+        super.onSaveInstanceState(outState)
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
-        super.onRestoreInstanceState(savedInstanceState)
-        if (savedInstanceState != null)
-            listState = savedInstanceState.getParcelable(LIST_STATE_KEY)
     }
-
 }

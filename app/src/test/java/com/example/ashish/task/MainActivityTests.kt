@@ -19,7 +19,6 @@ class MainActivityTests {
     private var presenter: PresenterLogic? = null
     private var layoutManager: LinearLayoutManager? = null
     private var adapter: ItemsAdapter? = null
-    private var list: ArrayList<RowData> = ArrayList()
     private var mockMainApplication: MainApplication? = null
     private var connectionReceiver: ConnectionReceiver? = null
 

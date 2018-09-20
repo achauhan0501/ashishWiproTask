@@ -1,20 +1,42 @@
 package com.example.ashish.task.model
 
-import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
+import android.os.Parcel
+import android.os.Parcelable
 
-class RowData {
+class RowData() : Parcelable {
 
 
-    @SerializedName("title")
-    @Expose
     var title: String = ""
-    @SerializedName("description")
-    @Expose
     var description: String = ""
-    @SerializedName("imageHref")
-    @Expose
     var imageHref: String = ""
+
+    constructor(parcel: Parcel) : this() {
+        title = parcel.readString()
+        description = parcel.readString()
+        imageHref = parcel.readString()
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(title)
+        parcel.writeString(description)
+        parcel.writeString(imageHref)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<RowData> {
+        override fun createFromParcel(parcel: Parcel): RowData {
+            return RowData(parcel)
+        }
+
+        override fun newArray(size: Int): Array<RowData?> {
+            return arrayOf(RowData())
+        }
+
+
+    }
 
 
 }
