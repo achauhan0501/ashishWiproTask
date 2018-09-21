@@ -29,38 +29,37 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ItemsAdapter.ViewHolder, position: Int) {
         val itemHolder = holder
+        itemHolder.binding.cardView.visibility = View.VISIBLE
+        itemHolder.binding.ivMain.visibility = View.VISIBLE
+
 
         itemHolder.binding.tvTitle.text = list[position].title
+        if (itemHolder.binding.tvTitle.text == "")
+            itemHolder.binding.cardView.visibility = View.GONE
+
         itemHolder.binding.tvHeading.text = list[position].description
 
-        itemHolder.binding.ivMain.visibility = View.VISIBLE
         Picasso.get()
                 .load(list[position].imageHref)
                 .error(R.drawable.pattern_placeholder)
                 .noFade()
                 .into(itemHolder.binding.ivMain, object : com.squareup.picasso.Callback {
                     override fun onError(e: Exception?) {
-                        itemHolder.binding.ivMain.visibility = View.INVISIBLE
+                        itemHolder.binding.ivMain.visibility = View.GONE
                     }
 
                     override fun onSuccess() {
                         //Success image already loaded into the view
                     }
                 })
-
     }
 
-    fun clearItems() {
-        list.clear()
-        notifyDataSetChanged()
-    }
 
     fun addItems(data: ArrayList<RowData>) {
         list.clear()
         list.addAll(data)
         notifyDataSetChanged()
     }
-
 
     inner class ViewHolder(var binding: RowItemBinding) : RecyclerView.ViewHolder(binding.root)
 

@@ -1,15 +1,12 @@
 package com.example.ashish.task
 
 import android.content.BroadcastReceiver
-import android.content.Context
 import android.content.IntentFilter
-import android.content.SharedPreferences
 import android.graphics.Color
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
-import android.preference.PreferenceManager
 import android.support.design.widget.Snackbar
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
@@ -26,8 +23,6 @@ import com.example.ashish.task.presenter.GetDataInterface
 import com.example.ashish.task.presenter.PresenterLogic
 import com.example.ashish.task.receiver.ConnectionReceiver
 import com.example.ashish.task.receiver.MainApplication
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -49,8 +44,6 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
 
     override fun onGetDataSuccess(message: String, data: java.util.ArrayList<RowData>, heading: String) {
         list = data
-        AppConstants.rowList = list
-        AppConstants.toolBarTitle = heading
         title = heading
         swipe_layout.isRefreshing = false
         initialise()
@@ -65,29 +58,12 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        if (savedInstanceState != null) {
-            list = savedInstanceState.getParcelableArrayList(AppConstants.SAVED_RECYCLER_VIEW_DATASET)
-            title = savedInstanceState.getString(AppConstants.SAVED_RECYCLER_VIEW_HEADING)
-            presenter = PresenterLogic(this@MainActivity)
-            layoutManager = LinearLayoutManager(this)
-            itemsAdapter = ItemsAdapter()
-            mConnectionReceiver = ConnectionReceiver()
-            registerReceiver()
-            if (listState != null) {
-                layoutManager?.onRestoreInstanceState(listState)
-            }
-            initialise()
-        } else {
-            presenter = PresenterLogic(this@MainActivity)
-            checkConnection()
-            list = ArrayList()
-            layoutManager = LinearLayoutManager(this)
-            itemsAdapter = ItemsAdapter()
-            mConnectionReceiver = ConnectionReceiver()
-            registerReceiver()
-        }
-
+        list = ArrayList()
+        presenter = PresenterLogic(this@MainActivity)
+        layoutManager = LinearLayoutManager(this)
+        itemsAdapter = ItemsAdapter()
+        mConnectionReceiver = ConnectionReceiver()
+        registerReceiver()
         swipe_layout.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
             if (ConnectionReceiver.isConnected()) {
                 refresh()
@@ -97,24 +73,26 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
             }
         })
 
+        // Check for previous state.
+        if (savedInstanceState != null) {
+            restorePreviousState(savedInstanceState)
+        } else {
+            checkConnection()
+        }
+
     }
 
-
-    override fun onResume() {
-        super.onResume()
-        MainApplication.getInstance().setConnectionListener(this)
+    fun restorePreviousState(savedInstanceState: Bundle) {
+        list = savedInstanceState.getParcelableArrayList(AppConstants.SAVED_RECYCLER_VIEW_DATASET)
+        title = savedInstanceState.getString(AppConstants.SAVED_RECYCLER_VIEW_HEADING)
         if (listState != null) {
             layoutManager?.onRestoreInstanceState(listState)
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        unRegisterReceiver()
+        initialise()
     }
 
     fun refresh() {
-        itemsAdapter?.clearItems()
+        list.clear()
         initialise()
         presenter?.getDataFromURL()
     }
@@ -124,15 +102,11 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
         rv.layoutManager = layoutManager
         rv.recycledViewPool.setMaxRecycledViews(0, 0)
         rv.setHasFixedSize(true)
-        // listState = rv.layoutManager.onSaveInstanceState()
         itemsAdapter?.addItems(list)
         rv.adapter = itemsAdapter
         val tv = TextView(applicationContext)
         // Create a LayoutParams for TextView
-        val lp = RelativeLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT, // Width of TextView
-                ViewGroup.LayoutParams.WRAP_CONTENT) // Height of TextView
-        // Apply the layout parameters to TextView widget
+        val lp = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         tv.layoutParams = lp
         tv.gravity = Gravity.CENTER_HORIZONTAL
         tv.textSize = HEADING_SIZE
@@ -167,56 +141,50 @@ class MainActivity : AppCompatActivity(), GetDataInterface.View,
         * */
     private fun checkConnection() {
         val isConnected = ConnectionReceiver.isConnected()
-        if (!isConnected) {
+        if (!isConnected)
             showNoInternetSnackBar()
-        } else {
-            if(AppConstants.rowList.isNotEmpty()){
-                list = AppConstants.rowList
-                title = AppConstants.toolBarTitle
-                initialise()
-            }else{
-                presenter?.getDataFromURL()
-            }
-
-        }
-
+        else
+            presenter?.getDataFromURL()
     }
 
 
     override fun onNetworkConnectionChanged(isConnected: Boolean) {
-        if (!isConnected) {
-            //show a No Internet Alert or Dialog
+        if (!isConnected)
             showNoInternetSnackBar()
-        } else {
-            // dismiss the dialog or refresh the activity
+        else {
             snackbar?.dismiss()
             swipe_layout.isEnabled = true
         }
     }
 
     fun registerReceiver() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
             registerReceiver(mConnectionReceiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            registerReceiver(mConnectionReceiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
-        }
     }
 
-    fun unRegisterReceiver() {
-        try {
-            unregisterReceiver(mConnectionReceiver)
-        } catch (e: IllegalArgumentException) {
-            e.printStackTrace()
-        }
-
+    fun unRegisterReceiver() = try {
+        unregisterReceiver(mConnectionReceiver)
+    } catch (e: IllegalArgumentException) {
+        e.printStackTrace()
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
         outState?.putParcelable(LIST_STATE_KEY, layoutManager?.onSaveInstanceState())
         outState?.putParcelableArrayList(AppConstants.SAVED_RECYCLER_VIEW_DATASET, list)
-        outState?.putString(AppConstants.SAVED_RECYCLER_VIEW_HEADING,title)
+        outState?.putString(AppConstants.SAVED_RECYCLER_VIEW_HEADING, title)
         super.onSaveInstanceState(outState)
-
     }
+
+    override fun onResume() {
+        MainApplication.getInstance().setConnectionListener(this)
+        super.onResume()
+    }
+
+
+    override fun onDestroy() {
+        unRegisterReceiver()
+        super.onDestroy()
+    }
+
+
 }
