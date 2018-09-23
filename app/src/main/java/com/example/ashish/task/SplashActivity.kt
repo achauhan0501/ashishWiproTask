@@ -41,8 +41,8 @@ class SplashActivity : AppCompatActivity(), MvpView,
     var listState: Parcelable? = null
 
 
-    override fun setItems(pictureList: ArrayList<RowData>, heading: String) {
-        list = pictureList
+    override fun setItems(list: ArrayList<RowData>, heading: String) {
+        this.list = list
         title = heading
         swipe_layout.isRefreshing = false
         initialise()
