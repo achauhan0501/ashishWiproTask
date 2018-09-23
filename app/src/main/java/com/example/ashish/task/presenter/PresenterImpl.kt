@@ -36,7 +36,4 @@ class PresenterImpl : Presenter<MvpView>, LoaderListener {
         caller.loadItems(this)
     }
 
-    override fun onItemSelected(position: Int) {
-        mvpView?.showMessage(Integer.toString(position))
-    }
 }

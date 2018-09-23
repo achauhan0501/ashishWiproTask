@@ -10,6 +10,5 @@ interface MvpView {
 
     fun hideProgress()
 
-    fun showMessage(message: String)
 
 }

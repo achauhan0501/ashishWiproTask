@@ -8,5 +8,4 @@ interface Presenter<V> {
 
     fun onResume()
 
-    fun onItemSelected(position: Int)
 }
