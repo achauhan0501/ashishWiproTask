@@ -58,10 +58,7 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
     fun addItems(data: ArrayList<RowData>) {
         list.clear()
         list.addAll(data)
-        notifyDataSetChanged()
     }
 
     inner class ViewHolder(var binding: RowItemBinding) : RecyclerView.ViewHolder(binding.root)
-
-
 }

@@ -3,7 +3,6 @@ package com.example.ashish.task
 import android.support.v7.widget.LinearLayoutManager
 import com.example.ashish.task.adapter.ItemsAdapter
 import com.example.ashish.task.receiver.ConnectionReceiver
-import com.example.ashish.task.receiver.MainApplication
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test

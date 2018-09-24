@@ -26,7 +26,7 @@ import com.example.ashish.task.utils.AppConstants
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
-class SplashActivity : AppCompatActivity(), MvpView,
+class MainActivity : AppCompatActivity(), MvpView,
         ConnectionReceiver.ConnectionReceiverListener {
 
     private var presenterImpl: PresenterImpl? = null
@@ -86,6 +86,9 @@ class SplashActivity : AppCompatActivity(), MvpView,
         list = ArrayList()
         layoutManager = LinearLayoutManager(this)
         itemsAdapter = ItemsAdapter()
+        rv.layoutManager = layoutManager
+        rv.recycledViewPool.setMaxRecycledViews(0, 0)
+        rv.setHasFixedSize(true)
         mConnectionReceiver = ConnectionReceiver()
         registerReceiver()
 
@@ -136,17 +139,11 @@ class SplashActivity : AppCompatActivity(), MvpView,
     }
 
     fun refresh() {
-        //list.clear()
-        //initialise()
-        //presenter?.getDataFromURL()
         presenterImpl?.onResume()
     }
 
 
     fun initialise() {
-        rv.layoutManager = layoutManager
-        rv.recycledViewPool.setMaxRecycledViews(0, 0)
-        rv.setHasFixedSize(true)
         itemsAdapter?.addItems(list)
         rv.adapter = itemsAdapter
         val tv = TextView(applicationContext)
