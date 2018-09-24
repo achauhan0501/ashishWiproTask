@@ -1,6 +1,6 @@
 package com.example.ashish.task.model.network;
 
-import com.example.ashish.task.AppConstants;
+import com.example.ashish.task.utils.AppConstants;
 
 public class RestClient {
 
