@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity(), MvpView,
         ConnectionReceiver.ConnectionReceiverListener {
 
     private var presenterImpl: PresenterImpl? = null
-
     var layoutManager: LinearLayoutManager? = null
     var list: ArrayList<RowData> = ArrayList()
     var title: String = ""
@@ -102,6 +101,7 @@ class MainActivity : AppCompatActivity(), MvpView,
         swipe_layout.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
             if (ConnectionReceiver.isConnected()) {
                 refresh()
+                progress_bar.visibility = View.INVISIBLE
             } else {
                 swipe_layout.isRefreshing = false
                 swipe_layout.isEnabled = false
@@ -115,6 +115,8 @@ class MainActivity : AppCompatActivity(), MvpView,
         else {
             snackbar?.dismiss()
             swipe_layout.isEnabled = true
+            if(list.isEmpty())
+                presenterImpl?.onResume()
         }
     }
 
@@ -165,6 +167,7 @@ class MainActivity : AppCompatActivity(), MvpView,
         snackbar?.setAction("RETRY", View.OnClickListener {
             if (ConnectionReceiver.isConnected()) {
                 snackbar?.dismiss()
+                presenterImpl?.onResume()
 
             } else {
                 showNoInternetSnackBar()
