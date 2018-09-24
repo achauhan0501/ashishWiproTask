@@ -1,6 +1,4 @@
-package com.example.ashish.task
-
-import android.os.Bundle
+package com.example.ashish.task.utils
 
 class AppConstants {
 

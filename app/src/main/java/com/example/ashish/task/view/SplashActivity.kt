@@ -1,4 +1,4 @@
-package com.example.ashish.task
+package com.example.ashish.task.view
 
 import android.content.BroadcastReceiver
 import android.content.IntentFilter
@@ -16,12 +16,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
+import com.example.ashish.task.MainApplication
+import com.example.ashish.task.R
 import com.example.ashish.task.adapter.ItemsAdapter
 import com.example.ashish.task.model.RowData
 import com.example.ashish.task.presenter.PresenterImpl
 import com.example.ashish.task.receiver.ConnectionReceiver
-import com.example.ashish.task.receiver.MainApplication
-import com.example.ashish.task.view.MvpView
+import com.example.ashish.task.utils.AppConstants
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -58,7 +59,6 @@ class SplashActivity : AppCompatActivity(), MvpView,
         rv.visibility = View.VISIBLE
         progress_bar.visibility = View.INVISIBLE
     }
-
 
 
     override fun onResume() {
@@ -175,6 +175,7 @@ class SplashActivity : AppCompatActivity(), MvpView,
         })
         snackbar?.duration = Snackbar.LENGTH_INDEFINITE
         snackbar?.setActionTextColor(Color.WHITE)
+        snackbar?.show()
 
     }
 

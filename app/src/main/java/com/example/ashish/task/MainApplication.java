@@ -1,6 +1,8 @@
-package com.example.ashish.task.receiver;
+package com.example.ashish.task;
 
 import android.app.Application;
+
+import com.example.ashish.task.receiver.ConnectionReceiver;
 
 public class MainApplication extends Application{
     private static MainApplication mInstance;
