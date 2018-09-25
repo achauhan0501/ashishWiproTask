@@ -24,7 +24,6 @@ import com.example.ashish.task.presenter.PresenterImpl
 import com.example.ashish.task.receiver.ConnectionReceiver
 import com.example.ashish.task.utils.AppConstants
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 
 class MainActivity : AppCompatActivity(), MvpView,
         ConnectionReceiver.ConnectionReceiverListener {
@@ -62,16 +61,14 @@ class MainActivity : AppCompatActivity(), MvpView,
 
     override fun onResume() {
         MainApplication.getInstance().setConnectionListener(this)
-        //if (AppConstants.bundle == null)
-        // presenterImpl?.onResume()
         super.onResume()
-
     }
 
     override fun onDestroy() {
         unRegisterReceiver()
         presenterImpl?.detachView()
         super.onDestroy()
+
 
     }
 
@@ -83,6 +80,7 @@ class MainActivity : AppCompatActivity(), MvpView,
         presenterImpl?.attachedView(this)
 
         list = ArrayList()
+        title = ""
         layoutManager = LinearLayoutManager(this)
         itemsAdapter = ItemsAdapter()
         rv.layoutManager = layoutManager
@@ -115,10 +113,12 @@ class MainActivity : AppCompatActivity(), MvpView,
         else {
             snackbar?.dismiss()
             swipe_layout.isEnabled = true
-            if(list.isEmpty())
+            if (list.isEmpty())
                 presenterImpl?.onResume()
         }
     }
+
+
 
     fun registerReceiver() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
@@ -184,9 +184,17 @@ class MainActivity : AppCompatActivity(), MvpView,
         * */
     private fun checkConnection() {
         val isConnected = ConnectionReceiver.isConnected()
-        if (!isConnected)
+        if (!isConnected) {
             showNoInternetSnackBar()
-        else {
+
+            val ll = presenterImpl?.getDataOffline() as ArrayList<RowData>
+            if (ll.isNotEmpty()) {
+                list = ll
+                title = presenterImpl?.getTitle()!!
+                initialise()
+            }
+
+        } else {
             presenterImpl?.onResume()
         }
     }

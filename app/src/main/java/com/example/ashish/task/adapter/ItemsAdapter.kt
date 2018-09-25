@@ -39,19 +39,22 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
 
         itemHolder.binding.tvHeading.text = list[position].description
 
-        Picasso.get()
-                .load(list[position].imageHref)
-                .error(R.drawable.pattern_placeholder)
-                .noFade()
-                .into(itemHolder.binding.ivMain, object : com.squareup.picasso.Callback {
-                    override fun onError(e: Exception?) {
-                        itemHolder.binding.ivMain.visibility = View.GONE
-                    }
+        if(list[position].imageHref != null && !list[position].imageHref.isEmpty()) {
 
-                    override fun onSuccess() {
-                        //Success image already loaded into the view
-                    }
-                })
+            Picasso.get()
+                    .load(list[position].imageHref)
+                    .error(R.drawable.pattern_placeholder)
+                    .noFade()
+                    .into(itemHolder.binding.ivMain, object : com.squareup.picasso.Callback {
+                        override fun onError(e: Exception?) {
+                            itemHolder.binding.ivMain.visibility = View.GONE
+                        }
+
+                        override fun onSuccess() {
+                            //Success image already loaded into the view
+                        }
+                    })
+        }
     }
 
 
