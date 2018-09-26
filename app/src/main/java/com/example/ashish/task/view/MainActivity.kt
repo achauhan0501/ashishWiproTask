@@ -132,12 +132,8 @@ class MainActivity : AppCompatActivity(), MvpView,
     }
 
     fun restorePreviousState(savedInstanceState: Bundle) {
-        //
         list = savedInstanceState.getParcelableArrayList(AppConstants.SAVED_RECYCLER_VIEW_DATASET)
         title = savedInstanceState.getString(AppConstants.SAVED_RECYCLER_VIEW_HEADING)
-       /* if (listState != null) {
-            layoutManager?.onRestoreInstanceState(listState)
-        }*/
         initialise()
     }
 
