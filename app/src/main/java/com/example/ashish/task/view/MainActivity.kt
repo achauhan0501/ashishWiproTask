@@ -132,11 +132,12 @@ class MainActivity : AppCompatActivity(), MvpView,
     }
 
     fun restorePreviousState(savedInstanceState: Bundle) {
+        //
         list = savedInstanceState.getParcelableArrayList(AppConstants.SAVED_RECYCLER_VIEW_DATASET)
         title = savedInstanceState.getString(AppConstants.SAVED_RECYCLER_VIEW_HEADING)
-        if (listState != null) {
+       /* if (listState != null) {
             layoutManager?.onRestoreInstanceState(listState)
-        }
+        }*/
         initialise()
     }
 
@@ -199,9 +200,7 @@ class MainActivity : AppCompatActivity(), MvpView,
         }
     }
 
-
     override fun onSaveInstanceState(outState: Bundle?) {
-        outState?.putParcelable(LIST_STATE_KEY, layoutManager?.onSaveInstanceState())
         outState?.putParcelableArrayList(AppConstants.SAVED_RECYCLER_VIEW_DATASET, list)
         outState?.putString(AppConstants.SAVED_RECYCLER_VIEW_HEADING, title)
         super.onSaveInstanceState(outState)
